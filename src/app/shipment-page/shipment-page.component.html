@@ -8,6 +8,7 @@
       </div>
     </div>
 </nav>
+
 <div class="table-margin">
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -21,7 +22,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let p of shipment; let i=index;">
-        <th scope="row">{{p.id}}</th>
+        <a routerLink="/details/{{p.id}}"><th scope="row">{{p.id}}</th></a>
         <td>{{p.shipmentNumber}}</td>
         <td>{{p.airport}}</td>
         <td>{{p.flightNumber}}</td>

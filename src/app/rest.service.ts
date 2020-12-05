@@ -72,11 +72,6 @@ export class RestService {
     );
   }
 
-  moveTo(location: any): void {
-    this.router.navigate([location]);
-  }
-
-
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

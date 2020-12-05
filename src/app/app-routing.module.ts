@@ -4,6 +4,7 @@ import { ShipmentPageComponent } from './shipment-page/shipment-page.component';
 import { ShipmentAddComponent } from './shipment-add/shipment-add.component';
 import { ShipmentAddBagsComponent } from './shipment-add-bags/shipment-add-bags.component';
 import { ShipmentAddFinalizeComponent } from './shipment-add-finalize/shipment-add-finalize.component';
+import { ShipmentPageDetailsComponent } from './shipment-page-details/shipment-page-details.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,13 @@ const routes: Routes = [
     component: ShipmentAddFinalizeComponent,
     data: { title: 'FinalizeShipment' }
   },
-  { path: '',
+  {
+    path: 'details/:id',
+    component: ShipmentPageDetailsComponent,
+    data: { title: 'ShipmentDetails'}
+  },
+  {
+    path: '',
     redirectTo: '/shipments',
     pathMatch: 'full'
   }

@@ -1,7 +1,6 @@
 import { Component, NgModule, Input, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 
 interface Airport {
@@ -39,17 +38,4 @@ export class ShipmentAddComponent implements OnInit {
     this.router.navigate(['/bags/']);
   }
 
-  /*
-  addShipment(): void {
-    this.rest.addData('Shipments', this.shipment).subscribe((result) => {
-      this.rest.addData('ShipmentBags', {shipmentId: result.id});
-      shipmentData.id = result.id;
-    }, (err) => {
-      console.log(err);
-    });
-    this.router.navigate(['/bags/']);
-  }
-  */
-
 }
-

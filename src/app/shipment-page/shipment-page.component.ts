@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./shipment-page.component.scss']
 })
 export class ShipmentPageComponent implements OnInit {
+  constructor(public rest: RestService, private router: Router) { }
 
   shipment: Shipment[] = [];
 
-  constructor(public rest: RestService, private router: Router) { }
 
   ngOnInit(): void {
     this.getShipments();

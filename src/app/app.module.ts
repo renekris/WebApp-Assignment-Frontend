@@ -14,8 +14,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { ShipmentAddBagsComponent } from './shipment-add-bags/shipment-add-bags.component';
 import { ShipmentAddFinalizeComponent } from './shipment-add-finalize/shipment-add-finalize.component';
+import { ShipmentPageDetailsComponent } from './shipment-page-details/shipment-page-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ShipmentAddFinalizeComponent } from './shipment-add-finalize/shipment-a
     ShipmentPageComponent,
     ShipmentAddComponent,
     ShipmentAddBagsComponent,
-    ShipmentAddFinalizeComponent
+    ShipmentAddFinalizeComponent,
+    ShipmentPageDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { ShipmentAddFinalizeComponent } from './shipment-add-finalize/shipment-a
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
     FormsModule,
     BrowserAnimationsModule,
   ],
