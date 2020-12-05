@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" routerLink="/shipments">Shipments</a>
+            <a class="nav-item nav-link active" routerLink="/add">Add</a>
+        </div>
+    </div>
+</nav>
+
+<div class="row justify-content-center" style="margin-top: 1%;">
+    <div>
+        <h1>Shipment data</h1>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Shipment Number</mat-label>
+            <input matInput required [(ngModel)]="shipmentData.shipmentNumber" placeholder="XXX-XXXXXX" pattern="[a-zA-Z0-9]{3}-[a-zA-Z0-9]{6}" #shipmentNumber/>
+        </mat-form-field><br>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Airport</mat-label>
+            <mat-select required [(value)]="shipmentData.airport">
+                <mat-option *ngFor="let airport of airport" [value]="airport.saveValue" >{{airport.saveValue}}</mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Flight Number</mat-label>
+            <input required matInput [(ngModel)]="shipmentData.flightNumber" placeholder="LLNNNN" pattern="[a-zA-Z]{2}[0-9]{4}" #flightNumber/>
+        </mat-form-field><br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Flight date</mat-label>
+            <input required [min]="minDate" matInput [(ngModel)]="shipmentData.flightDate" placeholder="MM/DD/YYYY" [matDatepicker]="picker" #flightDate>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+        
+        <button (click)="routeAndSave()" mat-raised-button color="primary" [disabled]="
+        !shipmentNumber.validity.valid || 
+        !flightNumber.validity.valid || 
+        !flightDate.validity.valid">Save Shipment Data</button>
+    </div>
+</div>
