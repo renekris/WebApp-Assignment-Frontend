@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
+import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { IShipment } from './shipment-page-details/shipment-page-details.component';
 
 export interface Parcel {
   id: number;
@@ -38,7 +39,7 @@ export interface ShipmentBags {
 export interface Shipment {
   id: string;
   shipmentNumber: string;
-  airport: number;
+  airport: string;
   flightNumber: string;
   flightDate: Date;
 }
@@ -60,8 +61,8 @@ export class RestService {
     );
   }
 
-  getShipment(id: string): Observable<any> {
-    return this.http.get<Shipment>(endpoint + 'Shipments/' + id).pipe(
+  getShipmentDetails(id: string): Observable<any> {
+    return this.http.get<IShipment>(endpoint + 'Shipments/' + id + '/details').pipe(
       catchError(this.handleError)
     );
   }

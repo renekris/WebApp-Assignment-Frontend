@@ -9,5 +9,48 @@
     </div>
 </nav>
 
-{{shipment.id}}
-{{shipment.shipmentNumber}}
+<!--
+<div>
+  <p *ngFor="let property of shipment | keyvalue">{{shipment.value}}</p>
+</div>
+-->
+
+<div class="margin" *ngFor="let shipment of shipments">
+  <h1>Shipment Data</h1>
+  <p><b>Shipment GUID:</b> {{shipment.id}}</p>
+  <p><b>Shipment Number:</b> {{shipment.shipmentNumber}}</p>
+  <p><b>Shipment Airport:</b> {{shipment.airport}}</p>
+  <p><b>Shipment Flight Number:</b> {{shipment.flightNumber}}</p>
+  <p><b>Shipment Flight Date:</b> {{shipment.flightDate}}</p>
+  <br>
+  <div *ngFor="let listBag of shipment.listBags">
+    <h1>Bag List Data</h1>
+    <p><b>Bag List GUID:</b> {{listBag.id}}</p>
+    <br>
+    <div *ngFor="let listBagLetter of listBag.listBagLet">
+      <h1>Letter Bag Data</h1>
+      <p><b>Letter Bag GUID:</b> {{listBagLetter.id}}</p>
+      <p><b>Letter Bag Number:</b> {{listBagLetter.bagNumber}}</p>
+      <p><b>Letter Count:</b> {{listBagLetter.letterCount}}</p>
+      <p><b>Letter Bag Weight:</b> {{listBagLetter.weight}}</p>
+      <p><b>Letter Bag Price:</b> {{listBagLetter.price}}</p>
+      <br>
+    </div>
+    <div *ngFor="let listBagParcel of listBag.listBagPar">
+      <h1>Parcel Bag Data</h1>
+      <p><b>Parcel Bag GUID:</b> {{listBagParcel.id}}</p>
+      <p><b>Parcel Bag Number:</b> {{listBagParcel.bagNumber}}</p>
+      <br>
+      <div *ngFor="let parcel of listBagParcel.listParcels">
+        <h1>Parcel Data</h1>
+        <p><b>Parcel GUID:</b> {{parcel.id}}</p>
+        <p><b>Parcel Number:</b> {{parcel.parcelNumber}}</p>
+        <p><b>Parcel Recipient:</b> {{parcel.recipientName}}</p>
+        <p><b>Parcel Destination Country:</b> {{parcel.destinationCountry}}</p>
+        <p><b>Parcel Weight:</b> {{parcel.weight}}</p>
+        <p><b>Parcel Price:</b> {{parcel.price}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
